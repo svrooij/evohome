@@ -1,0 +1,26 @@
+{
+  "name": "evohome",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/svrooij/evohome.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/svrooij/evohome/issues"
+  },
+  "homepage": "https://github.com/svrooij/evohome#readme",
+  "devDependencies": {
+    "typescript": "^3.6.3"
+  },
+  "files": ["README.md", "LICENSE", "lib/**/*"]
+
+}
