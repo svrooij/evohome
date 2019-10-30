@@ -1,4 +1,10 @@
 import { EvohomeThermostat } from "./thermostat";
+/**
+ * Evohome device, gives details about a device.
+ *
+ * @export
+ * @interface EvohomeDevice
+ */
 export interface EvohomeDevice {
   gatewayID: number;
   deviceID: number;

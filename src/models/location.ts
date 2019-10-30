@@ -1,5 +1,11 @@
 import { EvohomeDevice } from './device'
 import { Weather } from './weather'
+/**
+ * Evohome Location usually is a house, that can have multiple devices.
+ *
+ * @export
+ * @interface EvohomeLocation
+ */
 export interface EvohomeLocation {
   locationID: number;
   name: string;
@@ -12,7 +18,7 @@ export interface EvohomeLocation {
   hasStation: boolean;
   devices: EvohomeDevice[];
   // oneTouchButtons: any[];
-  weather: Weather,
+  weather: Weather;
   daylightSavingTimeEnabled: boolean;
   // timeZone;
   oneTouchActionsSuspended: boolean;

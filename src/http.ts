@@ -1,10 +1,12 @@
-export interface IHttpResponse<T> extends Response {
+import fetch from 'node-fetch'
+import { HeadersInit, Request, RequestInfo, RequestInit, Response } from 'node-fetch'
+export interface HttpResponse<T> extends Response {
   parsedBody?: T;
 }
 
-const http = <T>(request: RequestInfo): Promise<IHttpResponse<T>> => {
+const http = <T>(request: RequestInfo): Promise<HttpResponse<T>> => {
   return new Promise((resolve, reject) => {
-    let response: IHttpResponse<T>;
+    let response: HttpResponse<T>;
     fetch(request)
       .then(res => {
         response = res;
@@ -14,6 +16,8 @@ const http = <T>(request: RequestInfo): Promise<IHttpResponse<T>> => {
         if (response.ok) {
           response.parsedBody = body;
           resolve(response);
+        } else if (response.status === 429) {
+          reject('Too many requests')
         } else {
           reject(response);
         }
@@ -28,25 +32,26 @@ export const get = async <T>(
   path: string,
   headers?: HeadersInit,
   args: RequestInit = { method: "get", headers: headers }
-): Promise<IHttpResponse<T>> => {
+): Promise<HttpResponse<T>> => {
+  console.log('GET Request to %s', path)
   return await http<T>(new Request(path, args));
 };
  
-export const post = async <T>(
+export const post = async <TResponse, TBody>(
   path: string,
-  body: any,
+  body: TBody,
   headers?: HeadersInit,
   args: RequestInit = { method: "post", body: JSON.stringify(body), headers: headers }
-): Promise<IHttpResponse<T>> => {
-  return await http<T>(new Request(path, args));
+): Promise<HttpResponse<TResponse>> => {
+  return await http<TResponse>(new Request(path, args));
 };
 
-export const put = async <T>(
+export const put = async <TResponse, TBody>(
   path: string,
-  body: any,
+  body: TBody,
   headers?: HeadersInit,
   args: RequestInit = { method: "put", body: JSON.stringify(body), headers: headers }
-): Promise<IHttpResponse<T>> => {
-  return await http<T>(new Request(path, args));
+): Promise<HttpResponse<TResponse>> => {
+  return await http<TResponse>(new Request(path, args));
 };
 

@@ -1,4 +1,4 @@
 export enum Units {
-  Celcius,
-  Fahrenheit
+  Celcius = "Celcius",
+  Fahrenheit = "Fahrenheit"
 }
