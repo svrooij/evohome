@@ -1,8 +1,8 @@
 {
   "name": "@svrooij/evohome",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Control your Honeywell evohome system right from node.js",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "build": "tsc",
     "test": "npm run lint && jest",
