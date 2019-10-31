@@ -1,6 +1,7 @@
 import {get, post, put} from './http'
 import { Headers } from 'node-fetch'
 import { EvohomeSession, LoginRequest, EvohomeLocation, HeatSetpointStatus, HeatSetpointRequest } from './models'
+
 /**
  * EvohomeClient is the main class of this library.
  *
@@ -59,7 +60,19 @@ constructor (username: string, password: string, applicationId = '91db1612-73fd-
     this.session = undefined;
   }
 
-  private async getHeaders(): Promise<Headers> {
+  public exportSession(): EvohomeSession | undefined {
+    return this.session;
+  }
+
+  public restoreSession(session: EvohomeSession): void {
+    this.session = session;
+  }
+
+  public restoreSessionFromSessionIdAndUserId(sessionId: string, userId: number): void {
+    this.session = {sessionId: sessionId, userInfo : { userID : userId }} as EvohomeSession;
+  }
+
+  private getHeaders(): Headers {
     return new Headers({
       'Accept': 'application/json',
       'Content-Type': 'application/json',
@@ -117,7 +130,7 @@ constructor (username: string, password: string, applicationId = '91db1612-73fd-
     return put<{id: number}, HeatSetpointRequest>(
       `https://tccna.honeywell.com/WebAPI/api/devices/${deviceId}/thermostat/changeableValues/heatSetpoint`,
       heatSetpointRequest,
-      await this.getHeaders()
+      this.getHeaders()
     )
     .then(result => result.ok)
   }

@@ -33,7 +33,7 @@ export const get = async <T>(
   headers?: HeadersInit,
   args: RequestInit = { method: "get", headers: headers }
 ): Promise<HttpResponse<T>> => {
-  console.log('GET Request to %s', path)
+  // console.log('GET Request to %s', path)
   return await http<T>(new Request(path, args));
 };
  

@@ -1,7 +1,7 @@
 {
-  "name": "evohome",
+  "name": "@svrooij/evohome",
   "version": "1.0.0",
-  "description": "",
+  "description": "Control your Honeywell evohome system right from node.js",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
@@ -13,8 +13,8 @@
     "type": "git",
     "url": "git+https://github.com/svrooij/evohome.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["evohome", "honeywell", "thermostat", "home-automation"],
+  "author": "Stephan van Rooij <github@svrooij.nl> (https://svrooij.nl)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/svrooij/evohome/issues"
