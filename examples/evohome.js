@@ -1,8 +1,8 @@
 const EvohomeClient = require('../lib/evohome-client').EvohomeClient
 const HeatSetpointStatus = require('../lib/evohome-client').HeatSetpointStatus
 
-const username = 'stephan+honeywell@svrooij.nl'
-const password = 'muhpRptu2Mzep'
+const username = 'your_user@domain.com'
+const password = 'your_password'
 
 const evohomeClient = new EvohomeClient(username, password)
 
