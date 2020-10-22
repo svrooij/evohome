@@ -1,5 +1,5 @@
-import fetch from 'node-fetch'
-import { HeadersInit, Request, RequestInfo, RequestInit, Response } from 'node-fetch'
+import fetch, { Request, RequestInfo, Response } from 'node-fetch'
+
 export interface HttpResponse<T> extends Response {
   parsedBody?: T;
 }
@@ -17,7 +17,7 @@ const http = <T>(request: RequestInfo): Promise<HttpResponse<T>> => {
           response.parsedBody = body;
           resolve(response);
         } else if (response.status === 429) {
-          reject('Too many requests')
+          reject('Rate limit, too many requests')
         } else {
           reject(response);
         }
@@ -28,30 +28,30 @@ const http = <T>(request: RequestInfo): Promise<HttpResponse<T>> => {
   });
 };
 
-export const get = async <T>(
+export const get = <T>(
   path: string,
-  headers?: HeadersInit,
-  args: RequestInit = { method: "get", headers: headers }
+  headers?: {[index: string]: string},
 ): Promise<HttpResponse<T>> => {
+  const requestInit = { method: "get", headers: headers };
   // console.log('GET Request to %s', path)
-  return await http<T>(new Request(path, args));
+  return http<T>(new Request(path, requestInit));
 };
  
-export const post = async <TResponse, TBody>(
+export const post = <TResponse, TBody>(
   path: string,
   body: TBody,
-  headers?: HeadersInit,
-  args: RequestInit = { method: "post", body: JSON.stringify(body), headers: headers }
+  headers?: {[index: string]: string},
 ): Promise<HttpResponse<TResponse>> => {
-  return await http<TResponse>(new Request(path, args));
+  const requestInit = { method: "post", body: JSON.stringify(body), headers: headers };
+  return http<TResponse>(new Request(path, requestInit));
 };
 
-export const put = async <TResponse, TBody>(
+export const put = <TResponse, TBody>(
   path: string,
   body: TBody,
-  headers?: HeadersInit,
-  args: RequestInit = { method: "put", body: JSON.stringify(body), headers: headers }
+  headers?: {[index: string]: string},
 ): Promise<HttpResponse<TResponse>> => {
-  return await http<TResponse>(new Request(path, args));
+  const requestInit = { method: "put", body: JSON.stringify(body), headers: headers };
+  return http<TResponse>(new Request(path, requestInit));
 };
 

@@ -13,7 +13,12 @@
     "type": "git",
     "url": "git+https://github.com/svrooij/evohome.git"
   },
-  "keywords": ["evohome", "honeywell", "thermostat", "home-automation"],
+  "keywords": [
+    "evohome",
+    "honeywell",
+    "thermostat",
+    "home-automation"
+  ],
   "author": "Stephan van Rooij <github@svrooij.nl> (https://svrooij.nl)",
   "license": "MIT",
   "bugs": {
@@ -21,11 +26,11 @@
   },
   "homepage": "https://github.com/svrooij/evohome#readme",
   "dependencies": {
-    "@types/node-fetch": "^2.5.2",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.1"
   },
   "devDependencies": {
     "@types/jest": "^24.0.21",
+    "@types/node-fetch": "^1.6.9",
     "@typescript-eslint/eslint-plugin": "^2.6.0",
     "@typescript-eslint/parser": "^2.6.0",
     "eslint": "^6.6.0",
