@@ -1,5 +1,4 @@
-import {get, post, put} from './http'
-import { Headers } from 'node-fetch'
+import { get, post, put } from './http'
 import { EvohomeSession, LoginRequest, EvohomeLocation, HeatSetpointStatus, HeatSetpointRequest } from './models'
 
 /**
@@ -72,12 +71,13 @@ constructor (username: string, password: string, applicationId = '91db1612-73fd-
     this.session = {sessionId: sessionId, userInfo : { userID : userId }} as EvohomeSession;
   }
 
-  private getHeaders(): Headers {
-    return new Headers({
+  private getHeaders(): {[index: string]: string} {
+
+    return {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
       'sessionID': this.session !== undefined ? this.session.sessionId : ''
-    });
+    };
   }
 
 
@@ -91,7 +91,7 @@ constructor (username: string, password: string, applicationId = '91db1612-73fd-
     if (this.session === undefined) throw new Error('Login first')
     return get<EvohomeLocation[]>(
       `https://mytotalconnectcomfort.com/WebAPI/api/locations?userId=${this.session.userInfo.userID}&allData=True`,
-      await this.getHeaders()
+      this.getHeaders()
     )
     .then(result => result.parsedBody)
     .then(result => {

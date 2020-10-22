@@ -1,8 +1,9 @@
 {
   "name": "@svrooij/evohome",
-  "version": "1.0.1",
-  "description": "Control your Honeywell evohome system right from node.js",
+  "version": "0.0.0-development",
+  "description": "Control your Honeywell evohome system right from Node or Typescript",
   "main": "lib/index.js",
+  "types": "lib/index.d.js",
   "scripts": {
     "build": "tsc",
     "test": "npm run lint && jest",
@@ -13,25 +14,30 @@
     "type": "git",
     "url": "git+https://github.com/svrooij/evohome.git"
   },
-  "keywords": ["evohome", "honeywell", "thermostat", "home-automation"],
-  "author": "Stephan van Rooij <github@svrooij.nl> (https://svrooij.nl)",
+  "keywords": [
+    "evohome",
+    "honeywell",
+    "thermostat",
+    "home-automation"
+  ],
+  "author": "Stephan van Rooij <github@svrooij.nl> (https://svrooij.io)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/svrooij/evohome/issues"
   },
   "homepage": "https://github.com/svrooij/evohome#readme",
   "dependencies": {
-    "@types/node-fetch": "^2.5.2",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.1"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.21",
-    "@typescript-eslint/eslint-plugin": "^2.6.0",
-    "@typescript-eslint/parser": "^2.6.0",
-    "eslint": "^6.6.0",
-    "jest": "^24.9.0",
-    "ts-jest": "^24.1.0",
-    "typescript": "^3.6.3"
+    "@types/jest": "^26.0.15",
+    "@types/node-fetch": "^2.5.7",
+    "@typescript-eslint/eslint-plugin": "^3.9.0",
+    "@typescript-eslint/parser": "^3.9.0",
+    "eslint": "^7.10.0",
+    "jest": "^26.4.2",
+    "ts-jest": "^26.4.0",
+    "typescript": "^3.8.3"
   },
   "files": [
     "README.md",
