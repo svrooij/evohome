@@ -29,14 +29,14 @@
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.21",
-    "@types/node-fetch": "^1.6.9",
-    "@typescript-eslint/eslint-plugin": "^2.6.0",
-    "@typescript-eslint/parser": "^2.6.0",
-    "eslint": "^6.6.0",
-    "jest": "^24.9.0",
-    "ts-jest": "^24.1.0",
-    "typescript": "^3.6.3"
+    "@types/jest": "^26.0.15",
+    "@types/node-fetch": "^2.5.7",
+    "@typescript-eslint/eslint-plugin": "^3.9.0",
+    "@typescript-eslint/parser": "^3.9.0",
+    "eslint": "^7.10.0",
+    "jest": "^26.4.2",
+    "ts-jest": "^26.4.0",
+    "typescript": "^3.8.3"
   },
   "files": [
     "README.md",
