@@ -1,8 +1,9 @@
 {
   "name": "@svrooij/evohome",
-  "version": "1.0.1",
-  "description": "Control your Honeywell evohome system right from node.js",
+  "version": "0.0.0-development",
+  "description": "Control your Honeywell evohome system right from Node or Typescript",
   "main": "lib/index.js",
+  "types": "lib/index.d.js",
   "scripts": {
     "build": "tsc",
     "test": "npm run lint && jest",
@@ -19,7 +20,7 @@
     "thermostat",
     "home-automation"
   ],
-  "author": "Stephan van Rooij <github@svrooij.nl> (https://svrooij.nl)",
+  "author": "Stephan van Rooij <github@svrooij.nl> (https://svrooij.io)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/svrooij/evohome/issues"
